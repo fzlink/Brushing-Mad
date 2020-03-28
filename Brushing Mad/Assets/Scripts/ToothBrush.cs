@@ -6,10 +6,12 @@ using UnityEngine;
 public class ToothBrush : MonoBehaviour
 {
     public Transform pivot;
+    public Transform cameraPivot;
     public float speed;
     public float rotSpeed;
     public float holdRotPitch;
     public float notHoldRotPitch;
+
 
     public ParticleSystem bubbleParticles;
 
@@ -17,6 +19,9 @@ public class ToothBrush : MonoBehaviour
     float pointer_x;
 
     public bool isHold;
+    private Vector3 currentPosition;
+    private Vector3 deltaPositon;
+    private Vector3 lastPositon;
     private bool canStart;
     public float scalingFactor = 0.25f;
     public float backAndForthDistance;
@@ -117,17 +122,29 @@ public class ToothBrush : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 isHold = true;
+                currentPosition.x = Input.mousePosition.x;
+                deltaPositon.x = currentPosition.x - lastPositon.x;
+                lastPositon.x = currentPosition.x;
+                pointer_x = deltaPositon.x;
             }
             else
             {
                 isHold = false;
             }
-            pointer_x = Input.GetAxis("Horizontal") *10;
+
         }
 
         if (isHold)
         {
             pivot.Rotate(-Vector3.forward, pointer_x * rotSpeed * Time.deltaTime);
+            if((pivot.eulerAngles.z > 45 && pivot.eulerAngles.z < 90) || (pivot.eulerAngles.z < 315 && pivot.eulerAngles.z > 270))
+            {
+                cameraPivot.Rotate(-Vector3.forward, pointer_x * rotSpeed * Time.deltaTime);
+            }
+            else
+            {
+                cameraPivot.rotation = Quaternion.Slerp(cameraPivot.rotation, Quaternion.identity, Time.deltaTime / scalingFactor);
+            }
         }
 
 
@@ -136,8 +153,12 @@ public class ToothBrush : MonoBehaviour
     private void ClampRotation()
     {
         clampedPivotRotation = pivot.eulerAngles;
-        clampedPivotRotation.z = ClampAngle(clampedPivotRotation.z, -90f, 90f);
+        clampedPivotRotation.z = ClampAngle(clampedPivotRotation.z, -60f, 60f);
         pivot.rotation = Quaternion.Euler(clampedPivotRotation);
+
+        clampedPivotRotation = cameraPivot.eulerAngles;
+        clampedPivotRotation.z = ClampAngle(clampedPivotRotation.z, -90f, 90f);
+        cameraPivot.rotation = Quaternion.Euler(clampedPivotRotation);
     }
 
     float ClampAngle(float angle, float from, float to)
