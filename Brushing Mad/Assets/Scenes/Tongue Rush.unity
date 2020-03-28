@@ -263,6 +263,59 @@ MonoBehaviour:
   meshRenderer: {fileID: 2027218054}
   bacteriaContainer: {fileID: 211370267}
   bacteriaCount: 20
+--- !u!1 &238891617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238891618}
+  - component: {fileID: 238891621}
+  - component: {fileID: 238891619}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238891618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238891617}
+  m_LocalRotation: {x: -0, y: -0.03156242, z: -0, w: 0.9995018}
+  m_LocalPosition: {x: -0.497, y: 0, z: 0}
+  m_LocalScale: {x: 0.44805, y: 1, z: 1.2512769}
+  m_Children: []
+  m_Father: {fileID: 2075524066}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -3.617, z: 0}
+--- !u!65 &238891619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238891617}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &238891621
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238891617}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &310795685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -420,6 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2085d0b5db506c142889f13ba2232098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
+  maxSpeed: 25
 --- !u!54 &310795688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -429,12 +484,12 @@ Rigidbody:
   m_GameObject: {fileID: 310795686}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!1 &539946602 stripped
 GameObject:
@@ -453,8 +508,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.020000003, y: 0.023606919, z: 0.2846568}
-  m_Center: {x: 0.0000000013969839, y: 0.00334759, z: 0.16439402}
+  m_Size: {x: 0.07546927, y: 0.023607142, z: 0.31530938}
+  m_Center: {x: -0.00046152622, y: 0.0033478092, z: 0.17972097}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +584,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.6e-43, y: 5.354992e-10, z: 6.6e-43, w: 0.0000000013395738}
+  m_BoundingSphereOverride: {x: 6.64e-43, y: NaN, z: 6.66e-43, w: 3.2008512e+13}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -755,7 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winBar: {fileID: 1171421571}
   toothBrush: {fileID: 310795687}
-  timeLimit: 3
+  timeLimit: 5
   winScreen: {fileID: 1700680902}
   startScreen: {fileID: 4173582517160538123}
   collectAudioSource: {fileID: 1066150388}
@@ -1050,6 +1105,91 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2981621543081036320}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2075524065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2075524066}
+  m_Layer: 0
+  m_Name: Walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2075524066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075524065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 238891618}
+  - {fileID: 2143555692}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2143555691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143555692}
+  - component: {fileID: 2143555695}
+  - component: {fileID: 2143555693}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143555692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143555691}
+  m_LocalRotation: {x: -0, y: 0.057991304, z: -0, w: 0.99831706}
+  m_LocalPosition: {x: 0.468, y: 0, z: 0.004}
+  m_LocalScale: {x: 0.44805, y: 1, z: 1.2370856}
+  m_Children: []
+  m_Father: {fileID: 2075524066}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 6.649, z: 0}
+--- !u!65 &2143555693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143555691}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2143555695
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143555691}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &642716121838351834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1628,6 +1768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: DRAG TO PLAY
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173582517767645834, guid: 1d8302c5bced0e34c8c279522d1f169f,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8302c5bced0e34c8c279522d1f169f, type: 3}

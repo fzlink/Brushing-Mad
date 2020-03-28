@@ -12,12 +12,16 @@ public class Enemy : MonoBehaviour
     public Vector3 takenGoal;
     private MeshRenderer meshRenderer;
 
+    public bool dropping;
+    public float dropStopY;
+    private float dropSpeed = 30f;
+
     private void Start()
     {
         //meshRenderer = GetComponent<MeshRenderer>();
         if(enemyType == EnemyType.Yellowness)
             takenGoal = transform.position + new Vector3(0f, 10f, 30f);
-        else if(enemyType == EnemyType.Bacteria)
+        else if(enemyType == EnemyType.Bacteria || enemyType == EnemyType.Food)
             takenGoal = transform.position + new Vector3(0f, 10f, 0f);
     }
 
@@ -25,6 +29,8 @@ public class Enemy : MonoBehaviour
     {
         isTaken = true;
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -37,6 +43,19 @@ public class Enemy : MonoBehaviour
         //{
         //    meshRenderer.enabled = false;
         //}
+        if (dropping)
+        {
+            GetComponent<BoxCollider>().enabled = false;
+            t = Time.deltaTime * dropSpeed;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x,dropStopY,transform.position.z), t);
+            if (Vector3.Distance(transform.position, new Vector3(transform.position.x, dropStopY, transform.position.z)) <= 0.01f)
+            {
+                dropping = false;
+                GetComponent<BoxCollider>().enabled = true;
+
+            }
+        }
+
 
         if (isTaken)
         {
