@@ -21,7 +21,7 @@ public class FlossRushManager : MonoBehaviour
 
     public AudioSource collectAudioSource;
 
-    [Range(1, 10)]
+    [Range(1, 25)]
     public float timeLimit;
     public Text timerText;
 

@@ -309,8 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toothBrush: {fileID: 199227747}
-  toothBrushTongueRush: {fileID: 0}
-  winThresholdPercentage: 1
+  winThresholdPercentage: 0.99
   winBar: {fileID: 1940087346}
   levelNoText: {fileID: 1474789721}
   winScreen: {fileID: 1700680902}
@@ -319,7 +318,6 @@ MonoBehaviour:
   winPercentage: {fileID: 20542008}
   losePercentage: {fileID: 1026078057}
   collectAudioSource: {fileID: 2049468927}
-  mainGame: 1
 --- !u!4 &1161800518
 Transform:
   m_ObjectHideFlags: 0
@@ -894,6 +892,16 @@ PrefabInstance:
       propertyPath: rotSpeed
       value: 13.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5352899454442116089, guid: df831104fd592c549b4ba9cb578f7fb5,
+        type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352899454442116089, guid: df831104fd592c549b4ba9cb578f7fb5,
+        type: 3}
+      propertyPath: cameraPivot
+      value: 
+      objectReference: {fileID: 2081323299}
     - target: {fileID: 5352899454442116094, guid: df831104fd592c549b4ba9cb578f7fb5,
         type: 3}
       propertyPath: m_Name
@@ -956,6 +964,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df831104fd592c549b4ba9cb578f7fb5, type: 3}
+--- !u!4 &2081323299 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3282987158031913922, guid: df831104fd592c549b4ba9cb578f7fb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081323298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2596245505477132660 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6862003822920288111, guid: bf1fca94580bae04db8efd4f24dcf739,
