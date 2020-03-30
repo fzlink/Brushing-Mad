@@ -22,7 +22,7 @@ EditorBuildSettings:
     guid: 882cdce1d02547049bc8adb4fe47fdf7
   - enabled: 1
     path: Assets/Scenes/Tongue Rush 2.unity
-    guid: 4a14d4acf1241814cbc8aee41c92c37b
+    guid: 17ddad458af905942ab889669b2437f1
   - enabled: 1
     path: Assets/Scenes/Level 4.unity
     guid: a7ff0c8faa0b54047b405815d4733874
@@ -34,7 +34,7 @@ EditorBuildSettings:
     guid: 2261db62c9e8e034fa84576ee5038d05
   - enabled: 1
     path: Assets/Scenes/Tongue Rush 3.unity
-    guid: 9eaf255038052dc4aa68539848993942
+    guid: e8b16f522213914478ed448e4a621eae
   - enabled: 1
     path: Assets/Scenes/Level 6.unity
     guid: 12e94d55b1606fb40af52a817f7fd16b
